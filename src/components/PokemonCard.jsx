@@ -1,3 +1,5 @@
+import "./PokemonCard.css";
+
 const pokemonList = [
     {
       name: "bulbasaur",
@@ -10,15 +12,15 @@ const pokemonList = [
   ];
 
 function PokemonCard() {
-    const pokemon = pokemonList[1];
+    const pokemon = pokemonList[0];
 
-    return <figure>
+    return <figure className="card">
         {pokemon.imgSrc ? (
-            < img src={pokemon.imgSrc} alt={pokemon.name} />
+            < img src={pokemon.imgSrc} alt={pokemon.name} className="cardImg"/>
         ) : (
-            <p>???</p>
+            <p className="cardParagraph">???</p>
         )}
-        <figcaption>{pokemon.name}</figcaption>
+        <figcaption className="cardCaption">{pokemon.name}</figcaption>
     </figure>;
 }
 
