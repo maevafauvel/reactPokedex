@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css"
 import PokemonCard from "./components/PokemonCard"
+import { func } from "prop-types";
 
 
 
@@ -43,11 +44,16 @@ function App() {
 
   return (
     <div className="divCard">
-      <button onClick={handleClickLeft}>Précédent</button>
+
+      {pokemonIndex > 0 ? <button onClick={handleClickLeft}>Précédent</button> : <button hidden></button>}
+
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      <button onClick={handleClickRight}>Suivant</button>
+
+      {pokemonIndex < pokemonList.length - 1 ? <button onClick={handleClickRight}>Suivant</button> : <button hidden></button>}
+      
     </div>
   );
+
 }
 
 export default App;
